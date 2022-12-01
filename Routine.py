@@ -2,19 +2,15 @@
 # 전신, 상체, 하체로 나누어서 해당 루틴을 클릭하면, 루틴 목록을 보여주는 식
 # 영상 링크도 같이 할 수 있으면 같이 주기
 from random import random
-
 from main import Main
 
 
 class Routine(Main):
     # 클래스 변수
     _ROUTINE = ('전신', '상체', '하체')   # 0: 전신, 1:상체, 2:하체
-    _WHOLEBODY = ('전신 찐 핵핵매운맛\nhttps://youtu.be/gMaB-fG4u4g', '20분 층간소음 X\nhttps://youtu.be/6sYMrAWBxs0', '30분 근력 유산소\nhttps://youtu.be/4kZHHPH6heY', '20분 유산소\nhttps://youtu.be/46vQnzaZ6aU', '32분 근력 유산소\nhttps://youtu.be/WHK2SxCiTBw')
-    _UPPERBODY = ('덤벨 상체\nhttps://youtu.be/xoWKLNwNva0', '20분 층간소움 X\nhttps://youtu.be/e1DHt9wfQOA', '15분 상체\nhttps://youtu.be/wmxQhM7fnFA', '11분 상체\nhttps://youtu.be/RGfAAhZsKc4', '상체 올킬\nhttps://youtu.be/XjEfUcZLbG4')
-    _LOWERBODY = ('25분 힙업\nhttps://youtu.be/0s9W3-CD0cE', '하체 핵매운맛\nhttps://youtu.be/NDsjmxTROEo', '스쿼트 10가지 동작\nhttps://youtu.be/DWYDL-WxF1U', '18분 덤벨 하체\nhttps://youtu.be/4qqBQ0Xs4nc', '전설의 하체토닝\nhttps://youtu.be/y7H-9qI-qtw')
-    # _WHOLEBODY = ('https://youtu.be/xoWKLNwNva0', 'https://youtu.be/e1DHt9wfQOA', 'https://youtu.be/wmxQhM7fnFA', 'https://youtu.be/RGfAAhZsKc4', 'https://youtu.be/XjEfUcZLbG4')
-    # _UPPERBODY = ('https://youtu.be/0s9W3-CD0cE', 'https://youtu.be/NDsjmxTROEo', 'https://youtu.be/DWYDL-WxF1U', 'https://youtu.be/4qqBQ0Xs4nc', 'https://youtu.be/y7H-9qI-qtw')
-    # _LOWERBODY = ('https://youtu.be/gMaB-fG4u4g', 'https://youtu.be/6sYMrAWBxs0', 'https://youtu.be/4kZHHPH6heY', 'https://youtu.be/46vQnzaZ6aU', 'https://youtu.be/WHK2SxCiTBw')
+    _WHOLEBODY = ('전신 찐 핵핵매운맛\thttps://youtu.be/gMaB-fG4u4g', '20분 층간소음 X\thttps://youtu.be/6sYMrAWBxs0', '30분 근력 유산소\thttps://youtu.be/4kZHHPH6heY', '20분 유산소\thttps://youtu.be/46vQnzaZ6aU', '32분 근력 유산소\thttps://youtu.be/WHK2SxCiTBw')
+    _UPPERBODY = ('덤벨 상체\thttps://youtu.be/xoWKLNwNva0', '20분 층간소움 X\thttps://youtu.be/e1DHt9wfQOA', '15분 상체\thttps://youtu.be/wmxQhM7fnFA', '11분 상체\thttps://youtu.be/RGfAAhZsKc4', '상체 올킬\thttps://youtu.be/XjEfUcZLbG4')
+    _LOWERBODY = ('25분 힙업\thttps://youtu.be/0s9W3-CD0cE', '하체 핵매운맛\thttps://youtu.be/NDsjmxTROEo', '스쿼트 10가지 동작\thttps://youtu.be/DWYDL-WxF1U', '18분 덤벨 하체\thttps://youtu.be/4qqBQ0Xs4nc', '전설의 하체토닝\thttps://youtu.be/y7H-9qI-qtw')
 
     def __init__(self):
         super().__init__()  # 부모 클래스의 생성자 호출
@@ -37,13 +33,15 @@ class Routine(Main):
         #전신이면 전신 루틴 중 인덱스 랜덤 출력
         if self.routine == 0:
             index = int(random()*len(Routine._WHOLEBODY))
-            print(f'-추천 루틴-\n{Routine._WHOLEBODY[index]}')
+            print("-" * 80 + f'\n-추천 루틴-\n{Routine._WHOLEBODY[index]}')
+        # 상체면 상체 루틴 중 인덱스 랜덤 출력
         if self.routine == 1:
             index = int(random()*len(Routine._UPPERBODY))
-            print(f'-추천 루틴-\n{Routine._UPPERBODY[index]}')
+            print("-" * 80 + f'\n-추천 루틴-\n{Routine._UPPERBODY[index]}')
+        # 하체면 하체 루틴 중 인덱스 랜덤 출력
         if self.routine == 2:
             index = int(random()*len(Routine._LOWERBODY))
-            print(f'-추천 루틴-\n{Routine._LOWERBODY[index]}')
+            print("-" * 80 + f'\n-추천 루틴-\n{Routine._LOWERBODY[index]}')
 
     def order(self):
         super().order()     # 부모 클래스의 order() 호출

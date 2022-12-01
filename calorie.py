@@ -1,6 +1,9 @@
-from main import Routine
+# 칼로리 계산
+from Routine import Routine
+from main import Main
 
-class Calorie:
+
+class Calorie(Routine):
     Korean_food = ('떡볶이', '튀김', '순대', '김밥', '어묵','X')
     Korean_food_calorie = (500, 600, 700, 400, 300)
 
@@ -15,15 +18,17 @@ class Calorie:
 
     calorie_add = 0
 
-    def __init__(self, name):
-        super(Calorie, self).__init__(name)
+    def __init__(self):
+        super().__init__()
         self.k = 5
         self.w = 5
         self.c = 5
         self.j = 5
 
     def __str__(self):
-        return f'{self.name}님이 섭취하신 음식은 \n' \
+        return super().__str__() + \
+            f'\n-칼로리 계산-' + \
+               f'\n{self.name}님이 섭취하신 음식은 \n' \
                f'한식 : {Calorie.Korean_food[self.k]} \n' \
                   f'양식 : {Calorie.Western_food[self.w]} \n' \
                     f'중식 : {Calorie.Chinese_food[self.c]} \n' \
@@ -80,6 +85,7 @@ class Calorie:
         self.Western()
         self.Chinese()
         self.Japanese()
+        super().order()
 
 
 if __name__ == '__main__':

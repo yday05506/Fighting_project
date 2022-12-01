@@ -1,6 +1,5 @@
-# 운동 루틴
-# 전신, 상체, 하체로 나누어서 해당 루틴을 클릭하면, 루틴 목록을 보여주는 식
-# 영상 링크도 같이 할 수 있으면 같이 주기
+# 메인
+# 이름, 키, 몸무게 입력
 
 class Main:
     def __init__(self):
@@ -9,9 +8,10 @@ class Main:
         self.stature = 0  # 키
 
     def __str__(self):
-        return f'이름 : {self.name}\t키 : {self.stature}cm\t체중 : {self.weight}kg'
+        return f'-신체 정보-\n이름 : {self.name}\t키 : {self.stature}cm\t체중 : {self.weight}kg'
 
     def set_name(self):
+        print("- 신체 입력 구간 -")
         # 사용자에게 이름 묻기
         name = input('이름을 입력하세요 : ')
         while True :
